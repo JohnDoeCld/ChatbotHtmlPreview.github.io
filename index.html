@@ -40,13 +40,7 @@
 
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
-	var initESW = function(gslbBaseURL) {
-		
-		embedded_svc.addEventHandler("afterDestroy", function(data) {
-		    console.log("afterDestroy event was fired.");
-		    const chatIcon = document.getElementsByClassName("embeddedServiceIcon")[0].attributes.style.value = 'display: inline-block';
-			console.log(chatIcon);
-		});
+	var initESW = function(gslbBaseURL) {		
 		embedded_svc.settings.displayHelpButton = true; //Or false
 		embedded_svc.settings.language = 'de'; //For example, enter 'en' or 'en-US'
 
@@ -83,7 +77,10 @@
 				isOfflineSupportEnabled: false
 			}
 		);
-
+		
+		embedded_svc.addEventHandler("afterDestroy", function(data) {
+		    document.getElementsByClassName("embeddedServiceIcon")[0].attributes.style.value = 'display: inline-block';
+		});
 	};
 
 	if (!window.embedded_svc) {
