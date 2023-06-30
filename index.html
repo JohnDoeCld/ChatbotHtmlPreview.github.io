@@ -44,7 +44,7 @@
 		
 		embedded_svc.addEventHandler("afterDestroy", function(data) {
 		    console.log("afterDestroy event was fired.");
-		    const chatIcon = document.getElementsByClassName("embeddedServiceIcon")[0].attributes;
+		    const chatIcon = document.getElementsByClassName("embeddedServiceIcon")[0].attributes.style.value = 'display: inline-block';
 			console.log(chatIcon);
 		});
 		embedded_svc.settings.displayHelpButton = true; //Or false
