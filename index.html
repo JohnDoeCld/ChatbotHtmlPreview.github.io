@@ -77,6 +77,10 @@
 				isOfflineSupportEnabled: false
 			}
 		);
+
+		embedded_svc.addEventHandler("afterDestroy", function(data) {
+		    document.getElementsByClassName("embeddedServiceIcon")[0].attributes.style.value = 'display: inline-block';
+		});
 	};
 
 	if (!window.embedded_svc) {
@@ -89,10 +93,6 @@
 	} else {
 		initESW('https://service.force.com');
 	}
-
-	embedded_svc.addEventHandler("afterDestroy", function(data) {
-	    document.getElementsByClassName("embeddedServiceIcon")[0].attributes.style.value = 'display: inline-block';
-	});
 </script>
 </body>
 </html>
