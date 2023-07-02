@@ -6,23 +6,48 @@
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
 		background-color: #D42725;
-		font-family: "Arial", sans-serif;
-	}
-	.embeddedServiceHelpButton .helpButton .uiButton:focus {
-		outline: 1px solid #D42725;
-	}
+		border-radius: 50%;
+		min-width: 8em;
+		height: 92px;
+	        margin: 0 15px 15px 0;
+		
+	    }
+	      .embeddedServiceHelpButton .helpButton .uiButton:focus {
+		outline: 1px solid #FFA400;
+		border-radius: 50%;
+		min-width: 8em;
+	    }
+	      .embeddedServiceHelpButton .helpButton {
+		margin: 0 20px 80px 0;
+	    }
+	      .embeddedServiceHelpButton .helpButton .uiButton .embeddedServiceIcon {
+		margin: auto;
+	    }
+	      .embeddedServiceHelpButton .embeddedServiceIcon::before {
+	       font-size: 5em;
+	    }
+	      .embeddedServiceHelpButton .helpButton .uiButton .helpButtonLabel {
+		display: none;
+	    }
+	     .embeddedServiceLiveAgentStateChatAvatar.isLightningOutContext .agentIconColor0 {
+		background-color: #84bd00;
+	    }
+	     img[embeddedService-chatHeader_chatHeader] {
+	       filter: brightness(0) invert(1);
+    	       scale: 120%;
+	     }
 </style>
 
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
-		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+		embedded_svc.settings.language = 'de'; //For example, enter 'en' or 'en-US'
 
-		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+		embedded_svc.settings.defaultMinimizedText = 'Chatte mit uns!'; //(Defaults to Chat with an Expert)
 		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
 
-		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+		embedded_svc.settings.loadingText = 'Wird geladen'; //(Defaults to Loading)
 		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
 
 		// Settings for Chat
@@ -64,6 +89,11 @@
 	} else {
 		initESW('https://service.force.com');
 	}
+
+	embedded_svc.addEventHandler("afterDestroy", function(data) {
+		    document.getElementsByClassName("embeddedServiceIcon")[0].attributes.style.value = 'display: inline-block';
+		});
+	};
 </script>
 </body>
 </html>
