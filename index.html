@@ -3,51 +3,26 @@
 <body>
 <h1>Hello World</h1>
 <p>I'm hosted with GitHub Pages.</p>
-<style type='text/css'>	
+<style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
-		background-color: #D42725;
-		border-radius: 50%;
-		min-width: 8em;
-		height: 92px;
-	        margin: 0 15px 15px 0;
-		
-	    }
-	      .embeddedServiceHelpButton .helpButton .uiButton:focus {
-		outline: 1px solid #FFA400;
-		border-radius: 50%;
-		min-width: 8em;
-	    }
-	      .embeddedServiceHelpButton .helpButton {
-		margin: 0 20px 80px 0;
-	    }
-	      .embeddedServiceHelpButton .helpButton .uiButton .embeddedServiceIcon {
-		margin: auto;
-	    }
-	      .embeddedServiceHelpButton .embeddedServiceIcon::before {
-	       font-size: 5em;
-	    }
-	      .embeddedServiceHelpButton .helpButton .uiButton .helpButtonLabel {
-		display: none;
-	    }
-	     .embeddedServiceLiveAgentStateChatAvatar.isLightningOutContext .agentIconColor0 {
-		background-color: #84bd00;
-	    }
-	     img[embeddedService-chatHeader_chatHeader] {
-	       filter: brightness(0) invert(1);
-    	       scale: 120%;
-	     }
+		background-color: #005290;
+		font-family: "Arial", sans-serif;
+	}
+	.embeddedServiceHelpButton .helpButton .uiButton:focus {
+		outline: 1px solid #005290;
+	}
 </style>
 
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
-	var initESW = function(gslbBaseURL) {		
+	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
-		embedded_svc.settings.language = 'de'; //For example, enter 'en' or 'en-US'
+		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
 
-		embedded_svc.settings.defaultMinimizedText = 'Chatte mit uns!'; //(Defaults to Chat with an Expert)
+		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
 		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
 
-		embedded_svc.settings.loadingText = 'Wird geladen'; //(Defaults to Loading)
+		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
 		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
 
 		// Settings for Chat
@@ -63,29 +38,25 @@
 		embedded_svc.settings.entryFeature = 'LiveAgent';
 
 		embedded_svc.init(
-			'https://sp-unternehmerforum--chatbotdev.sandbox.my.salesforce.com',
-			'https://sp-unternehmerforum--chatbotdev.sandbox.my.site.com/',
+			'https://sp-unternehmerforum.my.salesforce.com',
+			'https://sp-unternehmerforum.my.site.com/',
 			gslbBaseURL,
-			'00D9M000000C52L',
+			'00D09000007Se8B',
 			'S_P',
 			{
-				baseLiveAgentContentURL: 'https://c.la2s-core1.sfdc-yzvdd4.salesforceliveagent.com/content',
-				deploymentId: '5729M0000002PlV',
-				buttonId: '5739M0000000bM9',
-				baseLiveAgentURL: 'https://d.la2s-core1.sfdc-yzvdd4.salesforceliveagent.com/chat',
-				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I9M0000000PPpUAM_187752c5f28',
+				baseLiveAgentContentURL: 'https://c.la1-core1.sfdc-yzvdd4.salesforceliveagent.com/content',
+				deploymentId: '5729Y000000002L',
+				buttonId: '5739Y000000002V',
+				baseLiveAgentURL: 'https://d.la1-core1.sfdc-yzvdd4.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I9Y000000002CUAQ_18915f11de8',
 				isOfflineSupportEnabled: false
 			}
 		);
-		
-		embedded_svc.addEventHandler("afterDestroy", function(data) {
-		    document.getElementsByClassName("embeddedServiceIcon")[0].attributes.style.value = 'display: inline-block';
-		});
 	};
 
 	if (!window.embedded_svc) {
 		var s = document.createElement('script');
-		s.setAttribute('src', 'https://sp-unternehmerforum--chatbotdev.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.setAttribute('src', 'https://sp-unternehmerforum.my.salesforce.com/embeddedservice/5.0/esw.min.js');
 		s.onload = function() {
 			initESW(null);
 		};
@@ -94,5 +65,7 @@
 		initESW('https://service.force.com');
 	}
 </script>
+
+
 </body>
 </html>
